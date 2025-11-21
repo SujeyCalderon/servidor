@@ -30,7 +30,6 @@ func (mysql *MySQL) GetAll() ([]*entities.Canciones, error) {
     var canciones []*entities.Canciones
     for rows.Next() {
         song := &entities.Canciones{}
-        // VERIFICA que estos tipos coincidan con tu struct
         if err := rows.Scan(&song.IdCancion, &song.Cancion, &song.Banda); err != nil {
             return nil, fmt.Errorf("Error al escanear la canción: %v", err)
         }
